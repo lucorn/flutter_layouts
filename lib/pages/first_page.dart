@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:badges/badges.dart' as badges;
 
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
@@ -10,7 +10,7 @@ class FirstPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Title of the page'),
         centerTitle: true,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.grey[100],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -19,9 +19,15 @@ class FirstPage extends StatelessWidget {
           children: <Widget>[
             const Text('Open sicilian'),
             AspectRatio(
-              aspectRatio: 0.88,
+              aspectRatio: 1,
               child: Container(
                 color: Colors.yellow,
+              ),
+            ),
+            AspectRatio(
+              aspectRatio: 16,
+              child: Container(
+                color: Colors.greenAccent,
               ),
             ),
             AspectRatio(
@@ -70,12 +76,19 @@ class FirstPage extends StatelessWidget {
                     iconSize: 36,
                     tooltip: 'end',
                     onPressed: () {}),
-                IconButton(
-                    icon: const Icon(Icons.people_outlined),
-                    iconSize: 36,
-                    color: Colors.blue,
-                    tooltip: 'watchers',
-                    onPressed: () {}),
+                badges.Badge(
+                  badgeContent: const Text('2'),
+                  badgeStyle: const badges.BadgeStyle(
+                    badgeColor: Colors.amber,
+                    elevation: 0,
+                  ),
+                  position: badges.BadgePosition.topEnd(top: -3, end: 0),
+                  child: IconButton(
+                      icon: const Icon(Icons.people_outlined),
+                      iconSize: 36,
+                      tooltip: 'watchers',
+                      onPressed: () {}),
+                ),
                 IconButton(
                     icon: const Icon(Icons.mark_chat_unread_outlined),
                     iconSize: 36,
