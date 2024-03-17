@@ -12,53 +12,55 @@ class FirstPage extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.grey[100],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            const Padding(
-              padding: EdgeInsets.all(3),
-              child: Text(
-                'Open sicilian',
-                style: TextStyle(fontSize: 16),
-              ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          const Padding(
+            padding: EdgeInsets.all(3),
+            child: Text(
+              'Open sicilian',
+              style: TextStyle(fontSize: 16),
             ),
-            AspectRatio(
-              aspectRatio: 1,
-              child: Container(
-                color: Colors.yellow,
-              ),
+          ),
+          AspectRatio(
+            aspectRatio: 1,
+            child: Container(
+              color: Colors.yellow,
             ),
-            AspectRatio(
-              aspectRatio: 16,
-              child: Container(
-                color: Colors.greenAccent,
-              ),
+          ),
+          AspectRatio(
+            aspectRatio: 16,
+            child: Container(
+              color: Colors.greenAccent,
             ),
-            AspectRatio(
-              aspectRatio: 4,
-              child: Container(
-                color: Colors.orangeAccent,
-              ),
+          ),
+          AspectRatio(
+            aspectRatio: 4,
+            child: Container(
+              color: Colors.orangeAccent,
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: const Text('What If'),
-                  ),
-                  const Text('4..b4'),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: const Text('Submit'),
-                  ),
-                ],
-              ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('What If'),
+                ),
+                const Text('4..b4'),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Submit'),
+                ),
+              ],
             ),
-            Row(
+          ),
+          const Spacer(),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(5, 0, 5, 25),
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 IconButton(
@@ -102,8 +104,8 @@ class FirstPage extends StatelessWidget {
                     onPressed: () {}),
               ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
