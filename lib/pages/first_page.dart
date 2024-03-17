@@ -14,10 +14,15 @@ class FirstPage extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            const Text('Open sicilian'),
+            const Padding(
+              padding: EdgeInsets.all(3),
+              child: Text(
+                'Open sicilian',
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
             AspectRatio(
               aspectRatio: 1,
               child: Container(
