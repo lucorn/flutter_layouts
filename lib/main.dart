@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_layouts/pages/first_page.dart';
 import 'package:flutter_layouts/pages/second_page.dart';
+import 'package:flutter_layouts/pages/third_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,11 +18,12 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           primarySwatch: Colors.purple,
         ),
-        initialRoute: '/first',
+        initialRoute: '/third',
         showPerformanceOverlay: false,
         routes: {
           '/first': (context) => const FirstPage(),
           '/second': (context) => const SecondPage(),
+          '/third': (context) => ThirdPage(),
         });
   }
 }
