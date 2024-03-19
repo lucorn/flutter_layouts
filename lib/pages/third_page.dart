@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
 
+class ItemsGroup {
+  List<Item> items = [];
+}
+
 class Item {
   String name;
   String subtitle;
@@ -11,10 +15,20 @@ class Item {
 }
 
 class ThirdPage extends StatelessWidget {
+  List<Item> items = [];
+
+  List<ItemsGroup> groups = [];
+
   ThirdPage({super.key}) {
     // load the list of items
     items.add(Item(
         name: 'theDude', subtitle: 'updated moments ago', completed: false));
+    items.add(Item(
+        name: 'moveNow', subtitle: 'updated 3 hours ago', completed: false));
+    items.add(Item(
+        name: 'TheBest', subtitle: 'updated 2 days ago', completed: false));
+    items.add(Item(
+        name: 'Once7', subtitle: 'updated 22 minutes ago', completed: false));
     items.add(Item(
         name: 'moveNow', subtitle: 'updated 3 hours ago', completed: false));
     items.add(Item(
@@ -35,9 +49,17 @@ class ThirdPage extends StatelessWidget {
         name: 'anotherTry', subtitle: 'updated 2 hours ago', completed: true));
     items.add(Item(
         name: 'hurryUp', subtitle: 'updated 5 minutes ago', completed: true));
+    items.add(Item(
+        name: 'theDude', subtitle: 'updated 5 hours ago', completed: true));
+    items.add(Item(
+        name: 'Entry42', subtitle: 'updated 14 minutes ago', completed: true));
+    items.add(Item(
+        name: 'OlderThanYou', subtitle: 'updated 5 days ago', completed: true));
+    items.add(Item(
+        name: 'anotherTry', subtitle: 'updated 2 hours ago', completed: true));
+    items.add(Item(
+        name: 'hurryUp', subtitle: 'updated 5 minutes ago', completed: true));
   }
-
-  List<Item> items = [];
 
   @override
   Widget build(BuildContext context) {
@@ -55,14 +77,14 @@ class ThirdPage extends StatelessWidget {
           if (index == 0) {
             return Container(
               color: Colors.white54,
-              margin: EdgeInsets.all(5),
-              child: Text('My Turn'),
+              margin: const EdgeInsets.all(8),
+              child: const Text('My Turn'),
             );
           }
 
           return Container(
             color: Colors.greenAccent,
-            margin: EdgeInsets.all(5),
+            margin: const EdgeInsets.all(8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
