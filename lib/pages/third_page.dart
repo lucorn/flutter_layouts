@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:badges/badges.dart' as badges;
 
 class AllGroups {
   List<ItemsGroup> groups = [];
@@ -186,6 +185,13 @@ class Blade extends StatelessWidget {
             children: [
               Text(item.name),
               Text(item.subtitle),
+              Badge.count(
+                  count: 3,
+                  child: const Icon(
+                    Icons.comment_outlined,
+                    color: Colors.black45,
+                    size: 35,
+                  )),
             ],
           ),
         ),

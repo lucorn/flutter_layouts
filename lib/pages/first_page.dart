@@ -96,12 +96,17 @@ class FirstPage extends StatelessWidget {
                       tooltip: 'watchers',
                       onPressed: () {}),
                 ),
-                IconButton(
-                    icon: const Icon(Icons.mark_chat_unread_outlined),
-                    iconSize: 36,
-                    color: Colors.red,
-                    tooltip: 'chat',
-                    onPressed: () {}),
+                Badge.count(
+                    count: 3,
+                    textColor: Colors.black,
+                    textStyle: const TextStyle(fontSize: 14),
+                    backgroundColor: Colors.orangeAccent,
+                    child: IconButton(
+                        icon: const Icon(Icons.mark_chat_unread_outlined),
+                        iconSize: 36,
+                        color: Colors.red,
+                        tooltip: 'chat',
+                        onPressed: () {})),
               ],
             ),
           ),
