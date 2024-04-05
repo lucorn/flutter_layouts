@@ -24,8 +24,21 @@ class FirstPage extends StatelessWidget {
           ),
           AspectRatio(
             aspectRatio: 1,
-            child: Container(
-              color: Colors.yellow,
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 8),
+              itemBuilder: (context, index) {
+                var row = index ~/ 8;
+                var column = index % 8;
+
+                return Container(
+                  color:
+                      (row + column) % 2 == 0 ? Colors.white : Colors.black38,
+                );
+              },
+              itemCount: 64,
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
             ),
           ),
           AspectRatio(
