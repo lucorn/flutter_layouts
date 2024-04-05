@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         initialRoute: '/first',
         showPerformanceOverlay: false,
         routes: {
-          '/first': (context) => const FirstPage(),
+          '/first': (context) => FirstPage(),
           '/second': (context) => const SecondPage(),
           '/third': (context) => ThirdPage(),
         });

@@ -1,3 +1,6 @@
+import 'package:flutter_layouts/chess/coord.dart';
+import 'package:flutter_layouts/chess/piece.dart';
+
 class PieceLocation {
   final Piece _piece;
 
