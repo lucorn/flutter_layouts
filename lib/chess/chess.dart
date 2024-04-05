@@ -65,6 +65,7 @@ class Chess {
 
   // BEGIN Move navigation
 
+  /// forward move
   bool forwardMove() {
     if (_moveId == _committedMoves.length) {
       // at the end of the moves already
@@ -91,6 +92,7 @@ class Chess {
     return true;
   }
 
+  /// back one move
   bool backOneMove() {
     if (_moveId == 0) {
       return false;
