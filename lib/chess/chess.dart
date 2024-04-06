@@ -36,6 +36,9 @@ class Chess {
 
   ChessColor get playerToMove => (_moveId % 2 == 0) ? ChessColor.white : ChessColor.black;
 
+  Move? get currentMove => _committedMoves.isNotEmpty ? _committedMoves[_moveId] : null;
+  Move? get previousMove => _moveId > 0 ? _committedMoves[_moveId - 1] : null;
+
   bool makeMove(String move) {
     if (move == '-') {
       // removing the last move
@@ -62,6 +65,10 @@ class Chess {
     _moves += ',$move';
     return true;
   }
+
+  // State information
+  bool get canGoForward => _moveId < _committedMoves.length;
+  bool get canGoBack => _moveId > 0;
 
   // BEGIN Move navigation
 

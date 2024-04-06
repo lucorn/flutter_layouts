@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:badges/badges.dart' as badges;
 import 'package:flutter_layouts/widgets/chess_controller.dart';
 import 'package:flutter_layouts/widgets/game_board.dart';
 
@@ -29,109 +28,7 @@ class _FirstPageState extends State<FirstPage> {
         centerTitle: true,
         backgroundColor: Colors.grey[100],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          const Padding(
-            padding: EdgeInsets.all(3),
-            child: Text(
-              'Open sicilian',
-              style: TextStyle(fontSize: 16),
-            ),
-          ),
-          AspectRatio(
-            aspectRatio: 1,
-            child: ChessBoard(controller: chessController),
-          ),
-          AspectRatio(
-            aspectRatio: 16,
-            child: Container(
-              color: Colors.greenAccent,
-            ),
-          ),
-          AspectRatio(
-            aspectRatio: 4,
-            child: Container(
-              color: Colors.orangeAccent,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('What If'),
-                ),
-                const Text('4..b4'),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('Submit'),
-                ),
-              ],
-            ),
-          ),
-          const Spacer(),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(5, 0, 5, 25),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                IconButton(
-                    icon: const Icon(Icons.keyboard_double_arrow_left),
-                    iconSize: 36,
-                    tooltip: 'start',
-                    onPressed: () {
-                      chessController.goToBeginning();
-                    }),
-                IconButton(
-                    icon: const Icon(Icons.keyboard_arrow_left),
-                    iconSize: 36,
-                    tooltip: 'previous',
-                    onPressed: () {
-                      chessController.backOneMove();
-                    }),
-                IconButton(
-                    icon: const Icon(Icons.keyboard_arrow_right),
-                    iconSize: 36,
-                    tooltip: 'next',
-                    onPressed: () {
-                      chessController.forwardMove();
-                    }),
-                IconButton(
-                    icon: const Icon(Icons.keyboard_double_arrow_right),
-                    iconSize: 36,
-                    tooltip: 'end',
-                    onPressed: () {
-                      chessController.goToEnd();
-                    }),
-                badges.Badge(
-                  badgeContent: const Text('2'),
-                  badgeStyle: const badges.BadgeStyle(
-                    badgeColor: Colors.amber,
-                    elevation: 0,
-                  ),
-                  position: badges.BadgePosition.topEnd(top: -3, end: 0),
-                  child: IconButton(
-                      icon: const Icon(Icons.people_outlined), iconSize: 36, tooltip: 'watchers', onPressed: () {}),
-                ),
-                Badge.count(
-                    count: 3,
-                    textColor: Colors.black,
-                    textStyle: const TextStyle(fontSize: 14),
-                    backgroundColor: Colors.orangeAccent,
-                    child: IconButton(
-                        icon: const Icon(Icons.mark_chat_unread_outlined),
-                        iconSize: 36,
-                        color: Colors.red,
-                        tooltip: 'chat',
-                        onPressed: () {})),
-              ],
-            ),
-          ),
-        ],
-      ),
+      body: ChessBoard(controller: chessController),
     );
   }
 }
