@@ -36,7 +36,8 @@ class FutureListView extends StatefulWidget {
   State<FutureListView> createState() => _FutureListViewState();
 }
 
-class _FutureListViewState extends State<FutureListView> {
+class _FutureListViewState extends State<FutureListView>
+    with AutomaticKeepAliveClientMixin {
   final ScrollController _scrollController = ScrollController();
 
   Future<List<String>> fetchData() async {
@@ -47,6 +48,7 @@ class _FutureListViewState extends State<FutureListView> {
 
   @override
   Widget build(BuildContext context) {
+    print('building the FutureListView');
     return FutureBuilder<List<String>>(
       future: fetchData(),
       builder: (context, snapshot) {
@@ -129,4 +131,8 @@ class _FutureListViewState extends State<FutureListView> {
     _scrollController.dispose();
     super.dispose();
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }
