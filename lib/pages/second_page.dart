@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:flutter_layouts/pages/fourth_page.dart';
 
 class SecondPage extends StatelessWidget {
   const SecondPage({super.key});
@@ -23,19 +24,11 @@ class SecondPage extends StatelessWidget {
             ), //IconButton
           ],
           shadowColor: Colors.grey,
-          bottom: const TabBar(
-            labelColor: Colors.white,
-            unselectedLabelColor: Colors.white60,
-            tabs: [
-              Tab(text: 'Game'),
-              Tab(text: 'Chat'),
-            ],
-          ),
         ),
-        body: TabBarView(
-          children: [
+        body: PageView(
+          children: const [
             GameView(),
-            ChatView(),
+            FutureListView(),
           ],
         ),
       ),
@@ -43,11 +36,14 @@ class SecondPage extends StatelessWidget {
   }
 }
 
-class ChatView extends StatelessWidget {
-  ChatView({super.key}) {
-    print('Initializing the CHAT view');
-  }
+class ChatView extends StatefulWidget {
+  const ChatView({super.key});
 
+  @override
+  State<ChatView> createState() => _ChatViewState();
+}
+
+class _ChatViewState extends State<ChatView> {
   @override
   Widget build(BuildContext context) {
     print('building the CHAT view');
@@ -55,11 +51,14 @@ class ChatView extends StatelessWidget {
   }
 }
 
-class GameView extends StatelessWidget {
-  GameView({super.key}) {
-    print('Initializing the GAME view');
-  }
+class GameView extends StatefulWidget {
+  const GameView({super.key});
 
+  @override
+  State<GameView> createState() => _GameViewState();
+}
+
+class _GameViewState extends State<GameView> {
   @override
   Widget build(BuildContext context) {
     print('building the GAME view');

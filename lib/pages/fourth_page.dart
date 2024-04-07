@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class FourthPage extends StatefulWidget {
   const FourthPage({super.key});
@@ -57,21 +58,54 @@ class _FutureListViewState extends State<FutureListView> {
           WidgetsBinding.instance.addPostFrameCallback((_) {
             _scrollToEnd();
           });
-          return ListView.builder(
-            controller: _scrollController,
-            itemCount: snapshot.data?.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  color: Colors.orangeAccent,
-                  child: ListTile(
-                    title: Text(snapshot.data![index]),
+          return Column(children: [
+            Expanded(
+              child: ListView.builder(
+                controller: _scrollController,
+                itemCount: snapshot.data?.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      color: Colors.orangeAccent,
+                      child: ListTile(
+                        title: Text(snapshot.data![index]),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Row(
+              children: [
+                IconButton(
+                    icon: const Icon(Icons.grid_view),
+                    iconSize: 36,
+                    color: Colors.black,
+                    tooltip: 'chat',
+                    onPressed: () {
+                      print('go to chat');
+                    }),
+                const Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      labelText: 'type your text here',
+                    ),
                   ),
                 ),
-              );
-            },
-          );
+                ElevatedButton(
+                  onPressed: () {
+                    print('Send text clicked!');
+                    _scrollController.animateTo(
+                        _scrollController.position.maxScrollExtent,
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeIn);
+                  },
+                  child: const Text('Send'),
+                ),
+              ],
+            ),
+          ]);
         }
       },
     );

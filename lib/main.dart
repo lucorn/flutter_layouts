@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           primarySwatch: Colors.purple,
         ),
-        initialRoute: '/fourth',
+        initialRoute: '/second',
         showPerformanceOverlay: false,
         routes: {
           '/first': (context) => const FirstPage(),
