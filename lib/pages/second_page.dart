@@ -1,5 +1,7 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
-import 'package:badges/badges.dart' as badges;
+//import 'package:badges/badges.dart' as badges;
 import 'package:flutter_layouts/pages/fourth_page.dart';
 
 class SecondPage extends StatelessWidget {
@@ -44,6 +46,7 @@ class _ChatViewState extends State<ChatView>
     with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     print('building the CHAT view');
     return Container(color: Colors.greenAccent);
   }
@@ -63,6 +66,7 @@ class _GameViewState extends State<GameView>
     with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     print('building the GAME view');
     return Container(color: Colors.amber);
   }

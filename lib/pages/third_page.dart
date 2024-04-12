@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 
 class AllGroups {
@@ -49,48 +51,48 @@ class ThirdPage extends StatelessWidget {
     // load the list of items
     notCompleted.items.add(Item(
         name: 'theDude', subtitle: 'updated moments ago', completed: false));
-    notCompleted.items.add(Item(
-        name: 'moveNow', subtitle: 'updated 3 hours ago', completed: false));
-    notCompleted.items.add(Item(
-        name: 'TheBest', subtitle: 'updated 2 days ago', completed: false));
-    notCompleted.items.add(Item(
-        name: 'Once7', subtitle: 'updated 22 minutes ago', completed: false));
-    notCompleted.items.add(Item(
-        name: 'moveNow', subtitle: 'updated 3 hours ago', completed: false));
-    notCompleted.items.add(Item(
-        name: 'TheBest', subtitle: 'updated 2 days ago', completed: false));
-    notCompleted.items.add(Item(
-        name: 'Once7', subtitle: 'updated 22 minutes ago', completed: false));
+    // notCompleted.items.add(Item(
+    //     name: 'moveNow', subtitle: 'updated 3 hours ago', completed: false));
+    // notCompleted.items.add(Item(
+    //     name: 'TheBest', subtitle: 'updated 2 days ago', completed: false));
+    // notCompleted.items.add(Item(
+    //     name: 'Once7', subtitle: 'updated 22 minutes ago', completed: false));
+    // notCompleted.items.add(Item(
+    //     name: 'moveNow', subtitle: 'updated 3 hours ago', completed: false));
+    // notCompleted.items.add(Item(
+    //     name: 'TheBest', subtitle: 'updated 2 days ago', completed: false));
+    // notCompleted.items.add(Item(
+    //     name: 'Once7', subtitle: 'updated 22 minutes ago', completed: false));
 
     ItemsGroup completed =
         ItemsGroup(name: 'Completed', color: Colors.orangeAccent);
 
     allGroups.groups.add(completed);
 
-    completed.items.add(Item(
-        name: 'MaybeToday', subtitle: 'updated 4 days ago', completed: true));
-    completed.items.add(Item(
-        name: 'moveNow', subtitle: 'updated 12 hours ago', completed: true));
-    completed.items.add(Item(
-        name: 'theDude', subtitle: 'updated 5 hours ago', completed: true));
-    completed.items.add(Item(
-        name: 'Entry42', subtitle: 'updated 14 minutes ago', completed: true));
-    completed.items.add(Item(
-        name: 'OlderThanYou', subtitle: 'updated 5 days ago', completed: true));
-    completed.items.add(Item(
-        name: 'anotherTry', subtitle: 'updated 2 hours ago', completed: true));
-    completed.items.add(Item(
-        name: 'hurryUp', subtitle: 'updated 5 minutes ago', completed: true));
-    completed.items.add(Item(
-        name: 'theDude', subtitle: 'updated 5 hours ago', completed: true));
-    completed.items.add(Item(
-        name: 'Entry42', subtitle: 'updated 14 minutes ago', completed: true));
-    completed.items.add(Item(
-        name: 'OlderThanYou', subtitle: 'updated 5 days ago', completed: true));
-    completed.items.add(Item(
-        name: 'anotherTry', subtitle: 'updated 2 hours ago', completed: true));
-    completed.items.add(Item(
-        name: 'hurryUp', subtitle: 'updated 5 minutes ago', completed: true));
+    // completed.items.add(Item(
+    //     name: 'MaybeToday', subtitle: 'updated 4 days ago', completed: true));
+    // completed.items.add(Item(
+    //     name: 'moveNow', subtitle: 'updated 12 hours ago', completed: true));
+    // completed.items.add(Item(
+    //     name: 'theDude', subtitle: 'updated 5 hours ago', completed: true));
+    // completed.items.add(Item(
+    //     name: 'Entry42', subtitle: 'updated 14 minutes ago', completed: true));
+    // completed.items.add(Item(
+    //     name: 'OlderThanYou', subtitle: 'updated 5 days ago', completed: true));
+    // completed.items.add(Item(
+    //     name: 'anotherTry', subtitle: 'updated 2 hours ago', completed: true));
+    // completed.items.add(Item(
+    //     name: 'hurryUp', subtitle: 'updated 5 minutes ago', completed: true));
+    // completed.items.add(Item(
+    //     name: 'theDude', subtitle: 'updated 5 hours ago', completed: true));
+    // completed.items.add(Item(
+    //     name: 'Entry42', subtitle: 'updated 14 minutes ago', completed: true));
+    // completed.items.add(Item(
+    //     name: 'OlderThanYou', subtitle: 'updated 5 days ago', completed: true));
+    // completed.items.add(Item(
+    //     name: 'anotherTry', subtitle: 'updated 2 hours ago', completed: true));
+    // completed.items.add(Item(
+    //     name: 'hurryUp', subtitle: 'updated 5 minutes ago', completed: true));
   }
 
   @override
