@@ -24,20 +24,36 @@ class _FifthPageState extends State<FifthPage> {
         centerTitle: true,
         backgroundColor: Colors.grey[100],
       ),
-      body: SizedBox(
-          height: 700,
-          child: GestureDetector(
+      body: Column(
+        children: [
+          GestureDetector(
             onTapDown: (details) {
               tappedAt.value = details.localPosition;
             },
-            child: CustomPaint(
-              foregroundPainter: painter,
-              child: Container(
-                height: 500,
-                color: Colors.grey,
+            child: RepaintBoundary(
+              child: CustomPaint(
+                foregroundPainter: painter,
+                child: Container(
+                  height: 500,
+                  color: Colors.grey,
+                ),
               ),
             ),
-          )),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ElevatedButton(
+                    onPressed: () {}, child: const Text('First button')),
+                ElevatedButton(
+                    onPressed: () {}, child: const Text('Second button')),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

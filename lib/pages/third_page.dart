@@ -38,11 +38,10 @@ class Item {
 }
 
 class ThirdPage extends StatelessWidget {
-  late AllGroups allGroups;
+  final AllGroups allGroups = AllGroups();
 
   // initialize with content
   ThirdPage({super.key}) {
-    allGroups = AllGroups();
     ItemsGroup notCompleted =
         ItemsGroup(name: 'Not completed', color: Colors.greenAccent);
 
@@ -69,8 +68,8 @@ class ThirdPage extends StatelessWidget {
 
     allGroups.groups.add(completed);
 
-    // completed.items.add(Item(
-    //     name: 'MaybeToday', subtitle: 'updated 4 days ago', completed: true));
+    completed.items.add(Item(
+        name: 'MaybeToday', subtitle: 'updated 4 days ago', completed: true));
     // completed.items.add(Item(
     //     name: 'moveNow', subtitle: 'updated 12 hours ago', completed: true));
     // completed.items.add(Item(

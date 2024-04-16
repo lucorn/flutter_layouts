@@ -38,16 +38,23 @@ class _ChessBoardState extends State<ChessBoard> {
         Stack(
           children: [
             GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 8),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 8),
               itemBuilder: (context, index) {
                 var row = index ~/ 8;
                 var column = index % 8;
 
+                debugPrint('building square ($row, $column)');
+
                 Piece? piece = widget.controller.getPiece(Coord(row, column));
 
                 return Container(
-                  color: (row + column) % 2 == 0 ? Colors.white : Colors.orangeAccent[400],
-                  child: piece != null ? Image.asset(Piece.getImageForPiece(piece)) : const SizedBox(),
+                  color: (row + column) % 2 == 0
+                      ? Colors.white
+                      : Colors.orangeAccent[400],
+                  child: piece != null
+                      ? Image.asset(Piece.getImageForPiece(piece))
+                      : const SizedBox(),
                 );
               },
               itemCount: 64,
@@ -59,7 +66,8 @@ class _ChessBoardState extends State<ChessBoard> {
                 child: AspectRatio(
                   aspectRatio: 1.0,
                   child: CustomPaint(
-                    painter: ArrowPainter(widget.controller.arrows, PlayerColor.black),
+                    painter: ArrowPainter(
+                        widget.controller.arrows, PlayerColor.black),
                     child: Container(),
                   ),
                 ),
@@ -103,7 +111,9 @@ class _ChessBoardState extends State<ChessBoard> {
               IconButton(
                   icon: Icon(
                     Icons.keyboard_double_arrow_left,
-                    color: widget.controller.canGoBack ? Colors.black : Colors.grey,
+                    color: widget.controller.canGoBack
+                        ? Colors.black
+                        : Colors.grey,
                   ),
                   iconSize: 36,
                   tooltip: 'start',
@@ -113,7 +123,9 @@ class _ChessBoardState extends State<ChessBoard> {
               IconButton(
                   icon: Icon(
                     Icons.keyboard_arrow_left,
-                    color: widget.controller.canGoBack ? Colors.black : Colors.grey,
+                    color: widget.controller.canGoBack
+                        ? Colors.black
+                        : Colors.grey,
                   ),
                   iconSize: 36,
                   tooltip: 'previous',
@@ -123,7 +135,9 @@ class _ChessBoardState extends State<ChessBoard> {
               IconButton(
                   icon: Icon(
                     Icons.keyboard_arrow_right,
-                    color: widget.controller.canGoForward ? Colors.black : Colors.grey,
+                    color: widget.controller.canGoForward
+                        ? Colors.black
+                        : Colors.grey,
                   ),
                   iconSize: 36,
                   tooltip: 'next',
@@ -133,7 +147,9 @@ class _ChessBoardState extends State<ChessBoard> {
               IconButton(
                   icon: Icon(
                     Icons.keyboard_double_arrow_right,
-                    color: widget.controller.canGoForward ? Colors.black : Colors.grey,
+                    color: widget.controller.canGoForward
+                        ? Colors.black
+                        : Colors.grey,
                   ),
                   iconSize: 36,
                   tooltip: 'end',
@@ -148,7 +164,10 @@ class _ChessBoardState extends State<ChessBoard> {
                 ),
                 position: badges.BadgePosition.topEnd(top: -3, end: 0),
                 child: IconButton(
-                    icon: const Icon(Icons.people_outlined), iconSize: 36, tooltip: 'watchers', onPressed: () {}),
+                    icon: const Icon(Icons.people_outlined),
+                    iconSize: 36,
+                    tooltip: 'watchers',
+                    onPressed: () {}),
               ),
               Badge.count(
                   count: 3,
