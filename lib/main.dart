@@ -4,6 +4,7 @@ import 'package:flutter_layouts/pages/first_page.dart';
 import 'package:flutter_layouts/pages/two_pages_with_messages.dart';
 import 'package:flutter_layouts/pages/two_pages_with_chatview.dart';
 import 'package:flutter_layouts/pages/third_page.dart';
+import 'package:flutter_layouts/pages/two_pages_with_messages_with_provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           primarySwatch: Colors.purple,
         ),
-        initialRoute: '/twopageswithmessages',
+        initialRoute: '/twopageswithmessageswithprovider',
         showPerformanceOverlay: false,
         routes: {
           '/first': (context) => const FirstPage(),
@@ -30,6 +31,8 @@ class MyApp extends StatelessWidget {
           '/twopageswithmessages': (context) =>
               const TwoPagesWithMessagesPage(),
           '/fifth': (context) => const FifthPage(),
+          '/twopageswithmessageswithprovider': (context) =>
+              const TwoPagesWithMessagesWithProviderPage(),
         });
   }
 }

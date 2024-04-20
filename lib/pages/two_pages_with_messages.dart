@@ -40,7 +40,7 @@ class _TwoPagesWithMessagesPageState extends State<TwoPagesWithMessagesPage> {
       body: PageView(
         children: [
           Container(
-            color: Colors.greenAccent,
+            color: Colors.blueAccent,
             child: Column(
               children: [
                 const Text('Add item to the list of messages'),
@@ -74,10 +74,15 @@ class FutureListView extends StatefulWidget {
 class _FutureListViewState extends State<FutureListView>
     with AutomaticKeepAliveClientMixin {
   final ScrollController _scrollController = ScrollController();
+  bool initialized = false;
 
   Future<List<String>> fetchData() async {
-    // Simulate a network call.
-    await Future.delayed(const Duration(milliseconds: 600));
+    if (!initialized) {
+      initialized = true;
+      // Simulate a network call.
+      await Future.delayed(const Duration(seconds: 2));
+      return widget.messages;
+    }
     return widget.messages;
   }
 
@@ -102,6 +107,7 @@ class _FutureListViewState extends State<FutureListView>
                 controller: _scrollController,
                 itemCount: snapshot.data?.length,
                 itemBuilder: (context, index) {
+                  debugPrint('building item $index');
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
