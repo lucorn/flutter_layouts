@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+class Item {
+  final Key key;
+  final String name;
+
+  Item(this.key, this.name);
+}
+
 class ListProvider extends ChangeNotifier {
-  late List<String> messages;
+  late List<Item> messages;
   int lastMessageId = 100;
 
   bool initialized = false;
 
   ListProvider() {
-    messages = List<String>.generate(100, (index) => 'Item ${index + 1}');
+    messages = List<Item>.generate(
+        100, (index) => Item(Key(index.toString()), 'Item ${index + 1}'));
   }
 
-  Future<List<String>> fetchData() async {
+  Future<List<Item>> fetchData() async {
     // Simulate a network call.
     if (!initialized) {
       initialized = true;
@@ -22,7 +30,8 @@ class ListProvider extends ChangeNotifier {
   }
 
   void addMessage() {
-    messages.add('Item ${++lastMessageId}');
+    ++lastMessageId;
+    messages.add(Item(Key(lastMessageId.toString()), 'Item $lastMessageId'));
     notifyListeners();
   }
 }
@@ -106,7 +115,7 @@ class _FutureListViewWithProviderState extends State<FutureListViewWithProvider>
     super.build(context);
     return Consumer<ListProvider>(builder: (context, listProvider, child) {
       debugPrint('building the FutureListView');
-      return FutureBuilder<List<String>>(
+      return FutureBuilder<List<Item>>(
         future: listProvider.fetchData(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -129,7 +138,8 @@ class _FutureListViewWithProviderState extends State<FutureListViewWithProvider>
                       child: Container(
                         color: Colors.orangeAccent,
                         child: ListTile(
-                          title: Text(snapshot.data![index]),
+                          key: snapshot.data![index].key,
+                          title: Text(snapshot.data![index].name),
                         ),
                       ),
                     );
