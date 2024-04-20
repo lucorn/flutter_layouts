@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_layouts/pages/fifth_page.dart';
 import 'package:flutter_layouts/pages/first_page.dart';
-import 'package:flutter_layouts/pages/fourth_page.dart';
-import 'package:flutter_layouts/pages/second_page.dart';
+import 'package:flutter_layouts/pages/two_pages_with_messages.dart';
+import 'package:flutter_layouts/pages/two_pages_with_chatview.dart';
 import 'package:flutter_layouts/pages/third_page.dart';
 
 void main() {
@@ -20,13 +20,15 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           primarySwatch: Colors.purple,
         ),
-        initialRoute: '/fifth',
+        initialRoute: '/twopageswithmessages',
         showPerformanceOverlay: false,
         routes: {
           '/first': (context) => const FirstPage(),
-          '/second': (context) => const SecondPage(),
+          '/twopageswithchatview': (context) =>
+              const TwoPagesWithChatViewPage(),
           '/third': (context) => ThirdPage(),
-          '/fourth': (context) => const FourthPage(),
+          '/twopageswithmessages': (context) =>
+              const TwoPagesWithMessagesPage(),
           '/fifth': (context) => const FifthPage(),
         });
   }

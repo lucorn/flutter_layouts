@@ -3,16 +3,16 @@
 import 'package:chatview/chatview.dart';
 import 'package:flutter/material.dart';
 //import 'package:badges/badges.dart' as badges;
-import 'package:flutter_layouts/pages/fourth_page.dart';
 
-class SecondPage extends StatefulWidget {
-  const SecondPage({super.key});
+class TwoPagesWithChatViewPage extends StatefulWidget {
+  const TwoPagesWithChatViewPage({super.key});
 
   @override
-  State<SecondPage> createState() => _SecondPageState();
+  State<TwoPagesWithChatViewPage> createState() =>
+      _TwoPagesWithChatViewPageState();
 }
 
-class _SecondPageState extends State<SecondPage> {
+class _TwoPagesWithChatViewPageState extends State<TwoPagesWithChatViewPage> {
   late ChatController chatController;
   late ChatUser currentUser;
   @override
@@ -153,12 +153,11 @@ class _SecondPageState extends State<SecondPage> {
       body: PageView(
         children: [
           const GameView(),
-          const FutureListView(),
           ChatView(
             currentUser: currentUser,
             chatController: chatController,
             onSendTap: onSendTap,
-            chatBackgroundConfig: ChatBackgroundConfiguration(
+            chatBackgroundConfig: const ChatBackgroundConfiguration(
               backgroundColor: Colors.yellowAccent,
             ),
             reactionPopupConfig: ReactionPopupConfiguration(
@@ -167,8 +166,8 @@ class _SecondPageState extends State<SecondPage> {
                 // Your code goes here
                 print('reacted with $emoji to ${message.message}');
               },
-              padding: EdgeInsets.all(12),
-              shadow: BoxShadow(
+              padding: const EdgeInsets.all(12),
+              shadow: const BoxShadow(
                 color: Colors.black54,
                 blurRadius: 20,
               ),

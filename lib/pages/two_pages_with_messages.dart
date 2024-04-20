@@ -1,17 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
-class FourthPage extends StatefulWidget {
-  const FourthPage({super.key});
+class TwoPagesWithMessagesPage extends StatefulWidget {
+  const TwoPagesWithMessagesPage({super.key});
 
   @override
-  State<FourthPage> createState() => _FourthPageState();
+  State<TwoPagesWithMessagesPage> createState() =>
+      _TwoPagesWithMessagesPageState();
 }
 
-class _FourthPageState extends State<FourthPage> {
+class _TwoPagesWithMessagesPageState extends State<TwoPagesWithMessagesPage> {
+  late List<String> messages;
+  int lastMessageId = 100;
+
+  @override
+  initState() {
+    super.initState();
+    messages = List<String>.generate(100, (index) => 'Item ${index + 1}');
+  }
+
   @override
   void dispose() {
     super.dispose();
+  }
+
+  void addMessage() {
+    setState(() {
+      messages.add('Item ${++lastMessageId}');
+    });
   }
 
   @override
@@ -22,14 +37,34 @@ class _FourthPageState extends State<FourthPage> {
         centerTitle: true,
         backgroundColor: Colors.grey[100],
       ),
-      body: const FutureListView(),
+      body: PageView(
+        children: [
+          Container(
+            color: Colors.greenAccent,
+            child: Column(
+              children: [
+                const Text('Add item to the list of messages'),
+                ElevatedButton(
+                  onPressed: () {
+                    addMessage();
+                  },
+                  child: const Text('Add item'),
+                ),
+              ],
+            ),
+          ),
+          FutureListView(messages: messages),
+        ],
+      ),
     );
   }
 }
 
 class FutureListView extends StatefulWidget {
+  final List<String> messages;
   const FutureListView({
     super.key,
+    required this.messages,
   });
 
   @override
@@ -43,12 +78,13 @@ class _FutureListViewState extends State<FutureListView>
   Future<List<String>> fetchData() async {
     // Simulate a network call.
     await Future.delayed(const Duration(milliseconds: 600));
-    return List<String>.generate(100, (index) => 'Item ${index + 1}');
+    return widget.messages;
   }
 
   @override
   Widget build(BuildContext context) {
-    print('building the FutureListView');
+    super.build(context);
+    debugPrint('building the FutureListView');
     return FutureBuilder<List<String>>(
       future: fetchData(),
       builder: (context, snapshot) {
