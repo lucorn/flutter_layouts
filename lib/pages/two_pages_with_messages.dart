@@ -25,7 +25,8 @@ class _TwoPagesWithMessagesPageState extends State<TwoPagesWithMessagesPage> {
 
   void addMessage() {
     setState(() {
-      messages.add('Item ${++lastMessageId}');
+      messages.insert(0, 'Item ${++lastMessageId}');
+      //messages.add('Item ${++lastMessageId}');
     });
   }
 
@@ -98,12 +99,13 @@ class _FutureListViewState extends State<FutureListView>
         } else if (snapshot.hasError) {
           return Center(child: Text('Error: ${snapshot.error}'));
         } else {
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            _scrollToEnd();
-          });
+          // WidgetsBinding.instance.addPostFrameCallback((_) {
+          //   _scrollToEnd();
+          // });
           return Column(children: [
             Expanded(
               child: ListView.builder(
+                reverse: true,
                 controller: _scrollController,
                 itemCount: snapshot.data?.length,
                 itemBuilder: (context, index) {
@@ -111,7 +113,20 @@ class _FutureListViewState extends State<FutureListView>
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
-                      color: Colors.orangeAccent,
+                      decoration: BoxDecoration(
+                        color: Colors.orangeAccent,
+                        borderRadius: BorderRadius.circular(10),
+                        // border: Border.all(color: Colors.orange, width: 1),
+                        // add a box shadow
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: const Offset(3, 3),
+                          ),
+                        ],
+                      ),
                       child: ListTile(
                         title: Text(snapshot.data![index]),
                       ),
@@ -128,7 +143,7 @@ class _FutureListViewState extends State<FutureListView>
                     color: Colors.black,
                     tooltip: 'chat',
                     onPressed: () {
-                      print('go to chat');
+                      debugPrint('go to chat');
                     }),
                 const Expanded(
                   child: TextField(
@@ -139,7 +154,7 @@ class _FutureListViewState extends State<FutureListView>
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    print('Send text clicked!');
+                    debugPrint('Send text clicked!');
                     _scrollController.animateTo(
                         _scrollController.position.maxScrollExtent,
                         duration: const Duration(milliseconds: 300),

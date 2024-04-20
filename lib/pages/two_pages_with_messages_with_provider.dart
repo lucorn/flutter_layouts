@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class Item {
+class MessageItem {
   final Key key;
   final String name;
 
-  Item(this.key, this.name);
+  MessageItem(this.key, this.name);
 }
 
 class ListProvider extends ChangeNotifier {
-  late List<Item> messages;
+  late List<MessageItem> messages;
   int lastMessageId = 100;
 
   bool initialized = false;
 
   ListProvider() {
-    messages = List<Item>.generate(
-        100, (index) => Item(Key(index.toString()), 'Item ${index + 1}'));
+    messages = List<MessageItem>.generate(100,
+        (index) => MessageItem(Key(index.toString()), 'Item ${index + 1}'));
   }
 
-  Future<List<Item>> fetchData() async {
+  Future<List<MessageItem>> fetchData() async {
     // Simulate a network call.
     if (!initialized) {
       initialized = true;
@@ -31,7 +31,8 @@ class ListProvider extends ChangeNotifier {
 
   void addMessage() {
     ++lastMessageId;
-    messages.add(Item(Key(lastMessageId.toString()), 'Item $lastMessageId'));
+    messages.insert(
+        0, MessageItem(Key(lastMessageId.toString()), 'Item $lastMessageId'));
     notifyListeners();
   }
 }
@@ -115,7 +116,7 @@ class _FutureListViewWithProviderState extends State<FutureListViewWithProvider>
     super.build(context);
     return Consumer<ListProvider>(builder: (context, listProvider, child) {
       debugPrint('building the FutureListView');
-      return FutureBuilder<List<Item>>(
+      return FutureBuilder<List<MessageItem>>(
         future: listProvider.fetchData(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -123,12 +124,13 @@ class _FutureListViewWithProviderState extends State<FutureListViewWithProvider>
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else {
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              _scrollToEnd();
-            });
+            // WidgetsBinding.instance.addPostFrameCallback((_) {
+            //   _scrollToEnd();
+            // });
             return Column(children: [
               Expanded(
                 child: ListView.builder(
+                  reverse: true,
                   controller: _scrollController,
                   itemCount: snapshot.data?.length,
                   itemBuilder: (context, index) {
