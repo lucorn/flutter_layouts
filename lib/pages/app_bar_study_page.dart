@@ -29,10 +29,12 @@ class _AppBarStudyPageState extends State<AppBarStudyPage> {
 
   @override
   Widget build(BuildContext context) {
+    // commenting out the lines reading the arguments will avoid the rebuild of the page
+    // every time the popup menu is opened
     // final arguments = (ModalRoute.of(context)?.settings.arguments ??
     //     <String, dynamic>{}) as Map;
 
-    // debugPrint('appBarStudy page built. arguments: $arguments');
+    // debugPrint('---- CREATING appBarStudy page built. arguments: $arguments');
 
     BoardPainter painter = BoardPainter(tappedAt: tappedAt);
     PageState pageState = PageState();
