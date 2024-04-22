@@ -13,7 +13,12 @@ class PageState extends ChangeNotifier {
 }
 
 class AppBarStudyPage extends StatefulWidget {
-  const AppBarStudyPage({super.key});
+  late int id;
+  AppBarStudyPage({super.key, required identifier}) {
+    id = int.parse(identifier);
+
+    debugPrint('---- CREATING appBarStudy page built. arguments: $id');
+  }
 
   @override
   State<AppBarStudyPage> createState() => _AppBarStudyPageState();

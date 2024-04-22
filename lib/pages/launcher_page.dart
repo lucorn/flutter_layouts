@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class LauncherPage extends StatefulWidget {
   const LauncherPage({super.key});
@@ -21,8 +22,9 @@ class _LauncherPageState extends State<LauncherPage> {
           child: ElevatedButton(
             onPressed: () {
               debugPrint('go to another page');
-              Navigator.pushNamed(context, '/appbarStudy',
-                  arguments: {'id': 42});
+              context.push(Uri(path: '/appbarStudy/42').toString());
+              // Navigator.pushNamed(context, '/appbarStudy',
+              //     arguments: {'id': 42});
             },
             child: const Text('go to another page'),
           ),
