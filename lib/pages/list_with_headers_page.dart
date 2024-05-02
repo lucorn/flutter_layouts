@@ -37,11 +37,11 @@ class Item {
   Item({required this.name, required this.subtitle, required this.completed});
 }
 
-class ThirdPage extends StatelessWidget {
+class ListWithHeadersPage extends StatelessWidget {
   final AllGroups allGroups = AllGroups();
 
   // initialize with content
-  ThirdPage({super.key}) {
+  ListWithHeadersPage({super.key}) {
     ItemsGroup notCompleted =
         ItemsGroup(name: 'Not completed', color: Colors.greenAccent);
 

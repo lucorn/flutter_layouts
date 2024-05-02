@@ -7,6 +7,10 @@ import 'package:flutter/material.dart';
 class TwoPagesWithChatViewPage extends StatefulWidget {
   const TwoPagesWithChatViewPage({super.key});
 
+  // ! currently this does not work as expected
+  // ! once the user flips to the page with messages, it won't be able
+  // ! to flip back to the game page.
+
   @override
   State<TwoPagesWithChatViewPage> createState() =>
       _TwoPagesWithChatViewPageState();
