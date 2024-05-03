@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
 
   // GoRouter configuration
   final _router = GoRouter(
-    initialLocation: '/editControlPage',
+    initialLocation: '/twoPagesWithMessagesWithProviderPage',
     routes: [
       GoRoute(
         path: '/launcherPage',
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       ),
       GoRoute(
         path: '/editControlPage',
-        builder: (context, state) => EditControlPage(),
+        builder: (context, state) => const EditControlPage(),
       ),
       GoRoute(
         path: '/chessGamePage',
@@ -51,8 +51,7 @@ class MyApp extends StatelessWidget {
       ),
       GoRoute(
         path: '/twoPagesWithMessagesWithProviderPage',
-        builder: (context, state) =>
-            const TwoPagesWithMessagesWithProviderPage(),
+        builder: (context, state) => TwoPagesWithMessagesWithProviderPage(),
       ),
     ],
   );
